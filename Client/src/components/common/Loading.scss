@@ -1,0 +1,46 @@
+html, body {
+  height: 100%;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+
+
+.loading-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.loading-video:focus,
+.loading-video:focus-visible,
+.loading-video:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.loading-video:focus::after {
+  background: transparent !important;
+  color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.loading-video::-webkit-media-controls {
+  display: none !important;
+}
+
+.loading-video::-moz-focus-inner {
+  border: 0 !important;
+}

@@ -1,0 +1,119 @@
+// Hero Message Section Animations and Additional Styles
+.hero-message-section {
+  .hero-message-container {
+    animation: fadeInRight 1.2s ease-out forwards;
+    opacity: 0;
+    transform: translateX(50px);
+    
+    @media (max-width: 768px) {
+      animation: fadeInUp 1.2s ease-out forwards;
+      transform: translateY(30px);
+    }
+  }
+
+  .hero-main-heading {
+    animation-delay: 0.3s;
+    
+    &:hover {
+      transform: translateX(-10px);
+      transition: transform 0.3s ease;
+      
+      @media (max-width: 768px) {
+        transform: translateY(-5px);
+      }
+    }
+  }
+
+  .hero-description {
+    animation-delay: 0.6s;
+    
+    &:hover {
+      opacity: 1;
+      transform: translateX(-5px);
+      transition: all 0.3s ease;
+      
+      @media (max-width: 768px) {
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  .hero-statement {
+    animation-delay: 0.9s;
+    
+    &:hover {
+      color: #ffffff;
+      transform: translateX(-5px);
+      transition: all 0.3s ease;
+      
+      @media (max-width: 768px) {
+        transform: translateY(-3px);
+      }
+      
+      &::before {
+        background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+        width: 6px;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Text gradient animations for enhanced visual appeal
+.hero-text-gradient {
+  background: linear-gradient(120deg, #ffffff, #e0e0e0, #ffffff);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+// Responsive typography adjustments
+@media (max-width: 480px) {
+  .hero-message-section {
+    .hero-main-heading {
+      font-size: 2.2rem !important;
+      line-height: 1.2;
+    }
+    
+    .hero-description {
+      font-size: 1rem !important;
+      line-height: 1.4;
+    }
+    
+    .hero-statement {
+      font-size: 1.1rem !important;
+    }
+  }
+}

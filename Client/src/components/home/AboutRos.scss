@@ -1,0 +1,381 @@
+// About ROS Section Styles - Following rules.txt color palette
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Montagu+Slab:wght@300;400;500;600;700&display=swap');
+
+.about-ros {
+    background-color: #000000; // Official background color
+    color: #FFFFFF; // Official text color
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        padding: 60px 0;
+        min-height: auto;
+    }
+
+    &__container {
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        @media (min-width: 768px) {
+            padding: 0 40px;
+        }
+
+        @media (min-width: 1024px) {
+            padding: 0 60px;
+        }
+    }
+
+    // Main Heading - Playful font
+    &__heading {
+        font-family: 'Baloo 2', cursive;
+        font-size: 4rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 60px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        will-change: transform, opacity;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        @media (max-width: 992px) {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 2rem;
+            gap: 10px;
+        }
+    }
+
+    &__heading-icon {
+        color: #1a5345;
+        font-size: 0.8em;
+        animation: leafFloat 3s ease-in-out infinite;
+
+        @keyframes leafFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+    }
+
+    // Two Column Layout
+    &__main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        align-items: stretch;
+        min-height: 500px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            min-height: auto;
+        }
+    }
+
+    // Left Column - Image
+    &__image-container {
+        position: relative;
+        overflow: hidden;
+        will-change: transform, opacity;
+
+        margin-left: 100px;
+        max-width: 90%;
+        max-height: 90%;
+
+        @media (max-width: 768px) {
+            height: 400px;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.9);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    // Right Column - Content
+    &__content {
+        max-width: 100%;
+        max-height: 90%;
+        // border: 1px solid red;
+        // margin-right: 100px;
+        background-color: #000000;
+        padding: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        will-change: transform, opacity;
+
+        @media (max-width: 1200px) {
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            padding: 40px 20px;
+        }
+    }
+
+    &__mission {
+        max-width: 600px;
+        position: relative;
+        padding-top: 20px;
+    }
+
+    // Mission Tag - Green angled text
+    &__mission-tag {
+        align-items: center;
+        width: 100px;
+        gap: 8px;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1a5345; // Updated green shade
+        transform: rotate(-9deg);
+        transform-origin: left center;
+        margin-bottom: 10px;
+        position: absolute;
+        top: -10px;
+        right: 200px;
+        will-change: transform, opacity;
+        width: 20%;
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+            position: relative;
+            top: auto;
+            right: auto;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__mission-tag-icon {
+        color: #1a5345;
+        animation: seedGrow 2s ease-in-out infinite;
+
+        @keyframes seedGrow {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    // Mission Title
+    &__mission-title {
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        margin-bottom: 30px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        will-change: transform, opacity;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        @media (max-width: 992px) {
+            font-size: 2.25rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__mission-title-icon {
+        color: #1a5345;
+        font-size: 0.9em;
+        animation: worldSpin 4s linear infinite;
+
+        @keyframes worldSpin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    // Mission Text - Serif font
+    &__mission-text {
+        font-family: 'Montagu Slab', serif;
+        font-size: 2.375rem;
+        font-weight: 200;
+        color: #FFFFFF;
+        line-height: 1.65;
+        margin-bottom: 40px;
+        letter-spacing: 0.1em;
+        will-change: transform, opacity;
+        margin-left: 40px;
+
+        @media (max-width: 992px) {
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+    }
+
+    // Call to Action
+    &__cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1a5345;
+        text-decoration: none;
+        border: 2px solid #1a5345;
+        padding: 12px 24px;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        will-change: transform, opacity;
+
+        &:hover {
+            background-color: #1a5345;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 83, 69, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+    }
+
+    &__cta-arrow {
+        font-size: 0.9em;
+        transition: transform 0.3s ease;
+
+        .about-ros__cta:hover & {
+            transform: translateX(5px);
+        }
+    }
+
+
+    // Bottom Quote Section
+
+    &__quote-container {
+        text-align: center;
+        max-width: 1000px;
+        margin: 0 auto;
+        position: relative;
+
+        @media (max-width: 768px) {
+            padding: 40px 20px 0;
+        }
+    }
+
+    &__quote-icon {
+        color: #1a5345;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        opacity: 0.7;
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__quote {
+        font-family: 'Baloo 2', cursive;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        line-height: 1.4;
+        margin: 0;
+        will-change: transform, opacity;
+
+        @media (max-width: 992px) {
+            font-size: 1.75rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+// Accessibility - Reduced motion
+@media (prefers-reduced-motion: reduce) {
+    .about-ros {
+        &__image {
+            transition: none;
+        }
+
+
+
+
+
+        * {
+            will-change: auto !important;
+        }
+    }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+    .about-ros {
+        &__mission-text {
+            color: #FFFFFF;
+        }
+
+
+
+        &__image {
+            filter: brightness(1) contrast(1.2);
+        }
+    }
+}

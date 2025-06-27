@@ -1,0 +1,280 @@
+@import '../../styles/variables.scss';
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: $background;
+    color: $text-primary;
+
+    // Skip to main content link for accessibility
+    &__skip-link {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background-color: $accent-primary;
+        color: $background;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $radius-md;
+        text-decoration: none;
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-sm;
+        z-index: $z-tooltip;
+        transition: top $transition-base;
+
+        &:focus {
+            top: 6px;
+        }
+    }
+
+    // Main content area
+    &__main {
+        flex: 1;
+        width: 100%;
+        padding-top: 80px; // Height of fixed navbar
+        min-height: calc(100vh - 80px); // Ensure minimum height minus navbar
+
+        &--with-navbar {
+            padding-top: 80px; // Height of fixed navbar
+        }
+    }
+
+    // Mobile menu overlay
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: $z-modal-backdrop;
+        opacity: 0;
+        animation: fadeIn $transition-base ease-out forwards;
+
+        @media (min-width: $breakpoint-lg) {
+            display: none;
+        }
+    }
+}
+
+// Animation for overlay
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+// Prevent scroll when mobile menu is open
+body.mobile-menu-open {
+    overflow: hidden;
+
+    @media (min-width: $breakpoint-lg) {
+        overflow: auto;
+    }
+}
+
+// Focus management for accessibility
+.layout {
+    &:focus-within {
+        .layout__skip-link {
+            top: 6px;
+        }
+    }
+}
+
+// Smooth scroll behavior
+html {
+    scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto;
+    }
+}
+
+// Layout grid system for different page types
+.layout {
+
+    // Full width layout (landing pages, hero sections)
+    &--full-width {
+        .layout__main {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    // Contained layout (standard pages)
+    &--contained {
+        .layout__main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-left: $spacing-lg;
+            padding-right: $spacing-lg;
+
+            @media (min-width: $breakpoint-sm) {
+                padding-left: $spacing-xl;
+                padding-right: $spacing-xl;
+            }
+
+            @media (min-width: $breakpoint-lg) {
+                padding-left: $spacing-2xl;
+                padding-right: $spacing-2xl;
+            }
+        }
+    }
+
+    // Sidebar layout (documentation, admin)
+    &--with-sidebar {
+        .layout__main {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: $spacing-2xl;
+
+            @media (max-width: $breakpoint-lg) {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
+
+// Page transition animations
+.page-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity $transition-base, transform $transition-base;
+}
+
+.page-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity $transition-fast, transform $transition-fast;
+}
+
+// Loading state
+.layout--loading {
+    .layout__main {
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, $accent-primary, transparent);
+            animation: loading 1.5s infinite;
+            z-index: $z-fixed;
+        }
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+// Print styles
+@media print {
+    .layout {
+
+        &__skip-link,
+        .navbar,
+        .footer {
+            display: none !important;
+        }
+
+        &__main {
+            padding-top: 0 !important;
+        }
+    }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+    .layout {
+        &__skip-link {
+            border: 2px solid $text-primary;
+        }
+
+        &__overlay {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+    .layout {
+        &__overlay {
+            animation: none;
+        }
+    }
+
+    .page-enter-active,
+    .page-exit-active {
+        transition: none;
+    }
+}
+
+// Error boundary styles
+.layout__error-boundary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    padding: $spacing-4xl;
+    text-align: center;
+
+    h2 {
+        color: $warning;
+        margin-bottom: $spacing-lg;
+    }
+
+    p {
+        color: $text-secondary;
+        margin-bottom: $spacing-xl;
+        max-width: 500px;
+    }
+
+    button {
+        background: linear-gradient(135deg, $accent-primary 0%, #FFA500 100%);
+        color: $background;
+        font-weight: $font-weight-semibold;
+        padding: $spacing-md $spacing-xl;
+        border-radius: $radius-lg;
+        border: none;
+        cursor: pointer;
+        transition: all $transition-base;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+    }
+}

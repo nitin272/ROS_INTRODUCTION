@@ -1,0 +1,419 @@
+// Animation keyframes
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Main blog container
+.blog-container {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    padding: 2rem 0 0 0;
+}
+
+// Section styling
+.blog-section {
+    max-width: 100%;
+    margin: 0 auto 3.5rem auto;
+    padding: 3.5rem;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease-out;
+}
+
+// Two column layout
+.two-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    @media (min-width: 900px) {
+        flex-direction: row;
+        gap: 2.5rem;
+        align-items: flex-start;
+    }
+}
+
+.col {
+    flex: 1;
+}
+
+// Centered title
+.centered-title {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 2.5rem 0 2rem 0;
+}
+
+// Image grid
+.image-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &.grid-4-col {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &.grid-2-col {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+// Image placeholder
+.image-placeholder {
+    background: #18181b;
+    border-radius: 10px;
+    min-height: 70px;
+    min-width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    font-size: 1.1rem;
+    border: 1px dashed #333;
+    aspect-ratio: 1/1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+// Celebrating process image
+.celebrating-process-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.process-image {
+    width: 85%;
+    height: 75%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+}
+
+// Nature flow image
+.nature-flow-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flow-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+}
+
+// Growers content
+.growers-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+// Growers images
+.growers-images {
+    display: contents; // This allows the images to be placed directly in the grid
+}
+
+.grower-image {
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+    width: 100%;
+    height: 280px;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    &:first-child {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+        
+        @media (max-width: 768px) {
+            justify-self: center;
+            height: 250px;
+        }
+    }
+
+    &:last-child {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        
+        @media (max-width: 768px) {
+            grid-column: 1;
+            grid-row: 2;
+            justify-self: center;
+            height: 250px;
+        }
+    }
+}
+
+// Growers text
+.growers-text {
+    grid-column: 1 / -1; // Span full width
+    grid-row: 2;
+    background: rgb(0, 0, 0);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    color: #fff;
+    font-weight: 100;
+    font-size: 1.35rem;
+    line-height: 1.6;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.3px;
+    margin-top: 1rem;
+    
+    @media (max-width: 768px) {
+        grid-row: 3;
+        padding: 1.5rem 2rem;
+        font-size: 1.2rem;
+        margin-top: 0;
+    }
+}
+
+// Text block
+.text-block {
+    background: rgb(0,0,0);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    color: #fff;
+
+    font-weight: 600;
+    font-size: 1.28rem;
+    line-height: 1.7;
+    margin: 1.5rem auto 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+    max-width: 1100px;
+    text-align: center;
+}
+
+.card {
+    padding: 0;
+    color: #fff;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+
+
+.insta-header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.insta-image {
+    width: 100%;
+    height: 220px;
+    background: #cbd5e1;
+    border-radius: 12px;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.insta-footer {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1rem;
+    color: #888;
+    font-size: 1.1rem;
+}
+
+// Blog specific elements
+.blog-title {
+    animation: fadeIn 0.8s ease-out;
+    width: 100%;
+}
+
+// Blog logo styling
+.blog-logo {
+    height: 1.8rem;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    filter: brightness(1.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+// Small blog image styling
+.blog-image-small {
+    width: 65%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 768px) {
+        width: 75%;
+    }
+
+    @media (max-width: 480px) {
+        width: 85%;
+    }
+}
+
+.text-animate {
+    // animation: fadeIn 0.8s ease-out 0.2s both;
+    color: #fff;
+    // font-family: 'Montagu Slab', serif;
+    font-weight: 200;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 1.5rem auto 0 auto;
+    max-width: 1100px;
+    text-align: center;
+}
+
+.image-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+
+.responsive-grid {
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.instagram-interaction {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+// Button styling
+.blog-button {
+    background: linear-gradient(135deg, #5AC77F, #4CAF50);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(90, 199, 127, 0.3);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(90, 199, 127, 0.4);
+        background: linear-gradient(135deg, #4CAF50, #5AC77F);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Links
+a {
+    color: #5AC77F;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #4CAF50;
+        text-decoration: underline;
+    }
+}
+
+// Utility classes
+.brand-color {
+    color: #ffffff;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.margin-top-2 {
+    margin-top: 2rem;
+}

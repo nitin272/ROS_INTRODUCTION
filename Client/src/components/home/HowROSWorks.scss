@@ -1,0 +1,478 @@
+// How ROS Works Section Styles - Following rules.txt color palette
+.how-ros-works {
+    background-color: #000000; // Official background color
+    color: #FFFFFF; // Official text color
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    will-change: transform; // Performance optimization
+
+    &__container {
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        @media (min-width: 768px) {
+            padding: 0 40px;
+        }
+
+        @media (min-width: 1024px) {
+            padding: 0 60px;
+        }
+    }
+
+    // Header Section
+    &__header {
+        text-align: center;
+        margin-bottom: 80px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 60px;
+        }
+    }
+
+    &__title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #FFFFFF; // Official text color
+        margin-bottom: 20px;
+        letter-spacing: 0.02em;
+        will-change: transform, opacity;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+            gap: 15px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 2rem;
+            gap: 10px;
+        }
+    }
+
+    &__title-icon {
+        color: #1a5345;
+        font-size: 0.8em;
+        animation: wheatGrow 3s ease-in-out infinite;
+
+        @keyframes wheatGrow {
+
+            0%,
+            100% {
+                transform: rotate(-3deg) scale(1);
+            }
+
+            50% {
+                transform: rotate(3deg) scale(1.1);
+            }
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.25rem;
+        color: rgba(255, 255, 255, 0.8); // Subtle variation of official text color
+        font-weight: 400;
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto;
+        will-change: transform, opacity;
+
+        @media (max-width: 768px) {
+            font-size: 1.125rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1rem;
+        }
+    }
+
+    // Steps Container
+    &__steps {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 40px;
+        align-items: start;
+
+        @media (max-width: 1200px) {
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+
+    // Connecting Line - Using official color palette
+    &__connector-line {
+        position: absolute;
+        top: 70px;
+        left: 10%;
+        right: 10%;
+        height: 3px;
+        background: linear-gradient(90deg, #1a5345 0%, #1a5345 50%, #1a5345 100%); // Updated green color
+        z-index: 1;
+        will-change: transform;
+        border-radius: 2px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 7px;
+            background: linear-gradient(90deg, transparent 0%, rgba(26, 83, 69, 0.3) 20%, rgba(26, 83, 69, 0.3) 80%, transparent 100%);
+            filter: blur(3px);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    // Individual Step
+    &__step {
+        position: relative;
+        z-index: 2;
+        will-change: transform, opacity;
+
+        @media (max-width: 768px) {
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 3px;
+                height: 20px;
+                background: linear-gradient(180deg, #1a5345 0%, transparent 100%); // Updated green color
+                border-radius: 2px;
+            }
+        }
+    }
+
+    // Step Card - Dark mode optimized
+    &__card {
+        background-color: #000;
+        color: #ffffff;
+        border: 0.2px solid #1a5345;
+        border-radius: 24px;
+        padding: 40px 24px 32px;
+        text-align: center;
+        position: relative;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            0 4px 16px rgba(0, 0, 0, 0.08),
+            0 0 0 1px rgba(255, 255, 255, 0.05);
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        will-change: transform, box-shadow;
+        transition: box-shadow 0.3s ease;
+
+        // Subtle gradient overlay for depth using official colors
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26, 83, 69, 0.02) 0%, rgba(26, 83, 69, 0.02) 100%); // Updated green color
+            border-radius: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        &:hover {
+            box-shadow:
+                0 16px 48px rgba(0, 0, 0, 0.15),
+                0 8px 24px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(26, 83, 69, 0.1); // Updated green color border on hover
+
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 992px) {
+            padding: 32px 20px 28px;
+            min-height: 300px;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            padding: 36px 24px 32px;
+            min-height: auto;
+            border-radius: 22px;
+        }
+    }
+
+    // Icon Section - Using official color palette
+    &__icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #1a5345 0%, #1a5345 100%); // Updated green color
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        position: relative;
+        box-shadow:
+            0 8px 24px rgba(26, 83, 69, 0.25),
+            0 4px 12px rgba(26, 83, 69, 0.15);
+        will-change: transform;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, #1a5345, #1a5345); // Updated green color
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .how-ros-works__card:hover &::before {
+            opacity: 0.6;
+        }
+
+        // Enhanced pulse animation with official colors
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            background: linear-gradient(135deg, rgba(26, 83, 69, 0.2), rgba(26, 83, 69, 0.2)); // Updated green color
+            border-radius: 50%;
+            z-index: -2;
+            opacity: 0;
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 992px) {
+            width: 70px;
+            height: 70px;
+        }
+
+        @media (max-width: 768px) {
+            width: 75px;
+            height: 75px;
+        }
+    }
+
+    &__icon-symbol {
+        color: #FFFFFF; // Official text color for icons
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        will-change: transform;
+
+        svg {
+            width: 32px;
+            height: 32px;
+            color: inherit;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        @media (max-width: 992px) {
+            svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+
+    // Content Section
+    &__content {
+        flex: 1;
+        margin-bottom: 24px;
+    }
+
+    &__step-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #FFFFFF; // White text color
+        margin-bottom: 16px;
+        line-height: 1.3;
+
+        @media (max-width: 992px) {
+            font-size: 1.375rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 1.25rem;
+        }
+    }
+
+    &__step-description {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.7); // White text with opacity
+        line-height: 1.6;
+        margin: 0;
+
+        @media (max-width: 992px) {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 0.95rem;
+        }
+    }
+
+    // Step Number Badge - Using official Success color
+    &__badge {
+        width: 36px;
+        height: 36px;
+        background: #1a5345; // Updated green color
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        box-shadow:
+            0 4px 12px rgba(26, 83, 69, 0.3),
+            0 2px 6px rgba(26, 83, 69, 0.2);
+        position: relative;
+        will-change: transform;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, #1a5345, #1a5345); // Updated green color
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .how-ros-works__card:hover &::before {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 992px) {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    &__badge-number {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #FFFFFF; // Official text color
+        line-height: 1;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+        @media (max-width: 992px) {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+// Enhanced animations with official colors
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+// Mobile-specific adjustments
+@media (max-width: 768px) {
+    .how-ros-works {
+        padding: 80px 0;
+    }
+}
+
+// Accessibility & Performance - Respect user preferences
+@media (prefers-reduced-motion: reduce) {
+    .how-ros-works {
+        &__icon::after {
+            animation: none;
+        }
+
+        &__card::before,
+        &__icon::before,
+        &__badge::before {
+            transition: none;
+        }
+
+        * {
+            will-change: auto !important;
+        }
+    }
+}
+
+// High contrast mode - Enhanced accessibility
+@media (prefers-contrast: high) {
+    .how-ros-works {
+        &__card {
+            border: 2px solid #1a5345; // Updated green color border
+            background: #FFFFFF;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        &__step-description {
+            color: #000000;
+        }
+
+        &__connector-line {
+            background: #1a5345; // Updated green color
+
+            &::before {
+                display: none;
+            }
+        }
+
+        &__icon::after {
+            display: none;
+        }
+
+        &__subtitle {
+            color: #FFFFFF; // Ensure high contrast
+        }
+    }
+}
+
+// Dark mode enhancements for better visual hierarchy
+@media (prefers-color-scheme: dark) {
+    .how-ros-works {
+
+        // Already optimized for dark mode as per rules.txt
+        &__card {
+            // Maintain white cards for better contrast
+            background: #101010;
+        }
+    }
+}

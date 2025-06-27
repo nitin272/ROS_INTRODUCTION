@@ -1,0 +1,350 @@
+@import '../../styles/variables.scss';
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $z-fixed;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all $transition-base;
+    width: 100%;
+
+    &--scrolled {
+        background-color: rgba(0, 0, 0, 0.95);
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    &__container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 $spacing-lg;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+
+        @media (min-width: $breakpoint-sm) {
+            padding: 0 $spacing-xl;
+        }
+
+        @media (min-width: $breakpoint-lg) {
+            padding: 0 $spacing-2xl;
+        }
+    }
+
+    // Logo Section
+    &__brand {
+        display: flex;
+        align-items: center;
+        z-index: 2;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: $spacing-md;
+        text-decoration: none;
+        color: $text-primary;
+        transition: transform $transition-base;
+
+        &:hover {
+            transform: scale(1.02);
+            text-decoration: none;
+        }
+
+        &:focus {
+            outline-offset: 4px;
+            border-radius: $radius-md;
+        }
+    }
+
+    &__logo-icon {
+        filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.3));
+        margin-top: 10px;
+
+    }
+
+    &__logo-img {
+        width: 45px;
+        height: 40px;
+    }
+
+    &__logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+    }
+
+    &__logo-main {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $accent-primary;
+        letter-spacing: 0.05em;
+    }
+
+    &__logo-sub {
+        font-size: $font-size-xs;
+        color: $text-secondary;
+        font-weight: $font-weight-medium;
+        margin-top: 2px;
+    }
+
+    // Desktop Navigation
+    &__nav {
+        display: none;
+        align-items: center;
+        gap: $spacing-2xl;
+
+        @media (min-width: $breakpoint-lg) {
+            display: flex;
+        }
+    }
+
+    &__nav-item {
+        color: $text-secondary;
+        font-weight: $font-weight-medium;
+        font-size: $font-size-base;
+        text-decoration: none;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $radius-lg;
+        transition: all $transition-base;
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+            color: $accent-primary;
+            border: none;
+            outline: none;
+            text-decoration: none;
+        }
+
+        &:focus {
+            outline-offset: 2px;
+            color: $accent-primary;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: $accent-primary;
+            transition: all $transition-base;
+            transform: translateX(-50%);
+        }
+
+        &:hover::after {
+            width: 80%;
+        }
+    }
+
+    // CTA Button
+    &__actions {
+        display: none;
+
+        @media (min-width: $breakpoint-lg) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__cta-button {
+        background: linear-gradient(135deg, $accent-primary 0%, #FFA500 100%);
+        color: $background;
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-sm;
+        padding: $spacing-md $spacing-xl;
+        border-radius: $radius-xl;
+        border: none;
+        cursor: pointer;
+        transition: all $transition-base;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(135deg, #FFA500 0%, $accent-primary 100%);
+        }
+
+        &:focus {
+            outline: 2px solid $accent-secondary;
+            outline-offset: 2px;
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    // Mobile Menu Toggle
+    &__mobile-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 3;
+
+        @media (min-width: $breakpoint-lg) {
+            display: none;
+        }
+
+        &:focus {
+            outline: 2px solid $accent-primary;
+            outline-offset: 4px;
+            border-radius: $radius-sm;
+        }
+    }
+
+    &__hamburger-line {
+        width: 24px;
+        height: 2px;
+        background-color: $text-primary;
+        transition: all $transition-base;
+        transform-origin: center;
+        margin: 2px 0;
+
+        .navbar__mobile-toggle--active & {
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    }
+
+    // Mobile Menu
+    &__mobile-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all $transition-base;
+        z-index: $z-dropdown;
+
+        @media (min-width: $breakpoint-lg) {
+            display: none;
+        }
+
+        &--open {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__mobile-nav {
+        padding: $spacing-2xl $spacing-lg;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-lg;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+
+    &__mobile-nav-item {
+        color: $text-secondary;
+        font-weight: $font-weight-medium;
+        font-size: $font-size-lg;
+        text-decoration: none;
+        padding: $spacing-lg;
+        border-radius: $radius-lg;
+        transition: all $transition-base;
+        border: 1px solid transparent;
+
+        &:focus {
+            outline: 2px solid $accent-primary;
+            outline-offset: 2px;
+            color: $accent-primary;
+        }
+    }
+
+    &__mobile-cta-button {
+        background: linear-gradient(135deg, $accent-primary 0%, #FFA500 100%);
+        color: $background;
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-base;
+        padding: $spacing-lg $spacing-2xl;
+        border-radius: $radius-xl;
+        border: none;
+        cursor: pointer;
+        transition: all $transition-base;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: $spacing-lg;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        &:focus {
+            outline: 2px solid $accent-secondary;
+            outline-offset: 2px;
+        }
+    }
+}
+
+// Animation for smooth entrance
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// Loading state animation
+.navbar__loading {
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, $accent-primary, transparent);
+        animation: loading 1.5s infinite;
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
