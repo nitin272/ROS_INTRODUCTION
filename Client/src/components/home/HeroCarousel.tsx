@@ -10,7 +10,7 @@ const slidesData: SlideData[] = [
     {
         id: 1,
         title: "Welcome to ROS",
-        slogan: "Republic of Subjiwala ",
+        slogan: "Republic of Sabjiwala ",
         description: "Connecting local vegetable vendors, consumers, and investors in a revolutionary digital marketplace. We're building the future of local agriculture commerce, empowering communities one vegetable at a time.",
         logo: logo,
         backgroundColor: "linear-gradient(135deg, #000000 0%, #1a1a1a 100%)",

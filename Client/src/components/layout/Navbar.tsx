@@ -67,14 +67,14 @@ const Navbar: React.FC<NavbarProps> = ({
                     <Link
                         to="/"
                         className="navbar__logo"
-                        aria-label="ROS - Republic of Subjiwala Home"
+                        aria-label="ROS - Republic of Sabjiwala Home"
                     >
                         <div className="navbar__logo-icon">
                             <img src={logo} alt="ROS Logo" className="navbar__logo-img" />
                         </div>
                         <div className="navbar__logo-text">
                             <span className="navbar__logo-main">ROS</span>
-                            <span className="navbar__logo-sub">Republic of Subjiwala</span>
+                            <span className="navbar__logo-sub">Republic of Sabjiwala</span>
                         </div>
                     </Link>
                 </div>

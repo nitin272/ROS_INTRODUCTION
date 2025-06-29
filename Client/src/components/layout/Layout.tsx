@@ -111,41 +111,41 @@ const Layout: React.FC<LayoutProps> = ({
         {
             id: 'twitter',
             platform: 'Twitter',
-            href: 'https://twitter.com/ros_subjiwala',
+            href: 'https://twitter.com/ros_Sabjiwala',
             icon: '𝕏',
             label: 'Follow us on Twitter'
         },
         {
             id: 'linkedin',
             platform: 'LinkedIn',
-            href: 'https://linkedin.com/company/ros-subjiwala',
+            href: 'https://linkedin.com/company/ros-Sabjiwala',
             icon: '💼',
             label: 'Connect with us on LinkedIn'
         },
         {
             id: 'instagram',
             platform: 'Instagram',
-            href: 'https://instagram.com/ros_subjiwala',
+            href: 'https://instagram.com/ros_Sabjiwala',
             icon: '📷',
             label: 'Follow us on Instagram'
         },
         {
             id: 'facebook',
             platform: 'Facebook',
-            href: 'https://facebook.com/ros.subjiwala',
+            href: 'https://facebook.com/ros.Sabjiwala',
             icon: '📘',
             label: 'Like us on Facebook'
         }
     ];
 
     const contactInfo: ContactInfo = {
-        email: 'hello@subjiwala.com',
+        email: 'hello@Sabjiwala.com',
         phone: '+1 (555) 123-4567',
-        address: 'Republic of Subjiwala, Digital Agriculture Hub'
+        address: 'Republic of Sabjiwala, Digital Agriculture Hub'
     };
 
     const companyInfo = {
-        name: 'ROS - Republic of Subjiwala',
+        name: 'ROS - Republic of Sabjiwala',
         description: 'Connecting local vegetable vendors, consumers, and investors for a sustainable agricultural future.',
         established: '2024'
     };

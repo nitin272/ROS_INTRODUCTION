@@ -1,4 +1,4 @@
-# 🌿 ROS (Republic of Subjiwala) — Website
+# 🌿 ROS (Republic of Sabjiwala) — Website
 
 **Connecting local vegetable vendors to consumers through technology.**
 
@@ -6,7 +6,7 @@
 
 ## 📌 Project Overview
 
-**ROS (Republic of Subjiwala)** is a web platform modernizing the traditional vegetable market by digitally connecting vendors, consumers, and investors. Built with **React.js**, the platform offers seamless onboarding for vendors, easy shopping for consumers, and clear value for investors.
+**ROS (Republic of Sabjiwala)** is a web platform modernizing the traditional vegetable market by digitally connecting vendors, consumers, and investors. Built with **React.js**, the platform offers seamless onboarding for vendors, easy shopping for consumers, and clear value for investors.
 
 This repository contains the source code and content plan for the ROS website.
 
@@ -104,7 +104,7 @@ This repository contains the source code and content plan for the ROS website.
 
 # 🌈 ROS UI Color Theme Guide
 
-This README outlines the official color theme for **ROS (Republic of Subjiwala)** — a modern digital platform reimagining the traditional vegetable market.
+This README outlines the official color theme for **ROS (Republic of Sabjiwala)** — a modern digital platform reimagining the traditional vegetable market.
 
 ---
 

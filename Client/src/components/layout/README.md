@@ -1,6 +1,6 @@
 # Layout Components - ROS Platform
 
-This directory contains the professional layout components for the Republic of Subjiwala (ROS) platform, built following the design guidelines specified in `rules.txt`.
+This directory contains the professional layout components for the Republic of Sabjiwala (ROS) platform, built following the design guidelines specified in `rules.txt`.
 
 ## Components
 
