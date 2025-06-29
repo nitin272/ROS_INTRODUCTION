@@ -88,8 +88,8 @@ const Footer: React.FC<FooterProps> = ({
 
     // Default contact info
     const defaultContactInfo = {
-        email: 'hello@Sabjiwala.com',
-        phone: '+1 (555) 123-4567',
+        email: 'info@republicofsabjiwala.com',
+        phone: '7339792512',
         address: 'Republic of Sabjiwala, Digital Agriculture Hub'
     };
 
@@ -215,7 +215,7 @@ const Footer: React.FC<FooterProps> = ({
                                 <span className="footer__contact-icon" aria-hidden="true">☎</span>
                                 <span className="footer__contact-text">{contactInfo.phone}</span>
                             </a>
-                            <div 
+                            <div
                                 className="footer__contact-item footer__contact-address"
                                 role="text"
                                 aria-label={`Address: ${contactInfo.address}`}

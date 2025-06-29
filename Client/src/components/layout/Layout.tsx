@@ -139,8 +139,8 @@ const Layout: React.FC<LayoutProps> = ({
     ];
 
     const contactInfo: ContactInfo = {
-        email: 'hello@Sabjiwala.com',
-        phone: '+1 (555) 123-4567',
+        email: 'info@republicofsabjiwala.com',
+        phone: '7339792512',
         address: 'Republic of Sabjiwala, Digital Agriculture Hub'
     };
 
