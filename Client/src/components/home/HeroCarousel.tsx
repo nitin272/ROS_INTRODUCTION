@@ -13,18 +13,7 @@ const slidesData: SlideData[] = [
         slogan: "Republic of Sabjiwala ",
         description: "Connecting local vegetable vendors, consumers, and investors in a revolutionary digital marketplace. We're building the future of local agriculture commerce, empowering communities one vegetable at a time.",
         logo: logo,
-        backgroundColor: "linear-gradient(135deg, #000000 0%, #1a1a1a 100%)",
-        textColor: "#FFFFFF",
-        accentColor: "#1a5446"
-    },
-
-    {
-        id: 3,
-        title: "For Investors",
-        slogan: "Invest in the Future ",
-        description: "Be part of the agricultural revolution. Invest in sustainable local commerce and help build a platform that connects communities while generating strong returns for stakeholders.",
-        logo: logo,
-        backgroundColor: "linear-gradient(135deg, #000000 0%, #1a1a1a 100%)",
+        backgroundColor: "#000000",
         textColor: "#FFFFFF",
         accentColor: "#1a5446"
     }

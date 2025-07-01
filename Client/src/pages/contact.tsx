@@ -4,15 +4,12 @@ import indiaMap from '../assets/logos/india_map.svg';
 import '../styles/contactPage.scss';
 
 const ContactPage: React.FC = () => {
-  const [faqCount, setFaqCount] = useState(6);
-
-
   // Contact form state
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
-    country: 'US',
+    country: 'IN',
     phone: '',
     message: '',
     services: [] as string[],
@@ -43,7 +40,7 @@ const ContactPage: React.FC = () => {
       firstName: '',
       lastName: '',
       email: '',
-      country: 'US',
+      country: 'IN',
       phone: '',
       message: '',
       services: [],
@@ -78,66 +75,33 @@ const ContactPage: React.FC = () => {
   };
 
   const contactCards = [
-    {
-      title: 'Chat to sales',
-      desc: 'Speak directly to our sales team for all business inquiries.',
-      button: 'Message on WhatsApp',
-      link: '#',
-    },
+    // {
+    //   title: 'Chat to sales',
+    //   desc: 'Speak directly to our sales team for all business inquiries.',
+    //   button: 'Message on WhatsApp',
+    //   link: '#',
+    // },
     {
       title: 'Chat to support',
       desc: 'Need help? Our support team is here for you.',
       button: 'Message on WhatsApp',
       link: '#',
     },
-    {
-      title: 'Visit us',
-      desc: 'Come say hello at our Jaipur office.',
-      button: 'View on Google Maps',
-      link: '#',
-    },
-    {
-      title: 'Call us',
-      desc: 'Mon-Fri 9am to 5pm',
-      button: '+91 9988-000-000',
-      link: 'tel:+919988000000',
-    },
+    // {
+    //   title: 'Visit us',
+    //   desc: 'Come say hello at our Jaipur office.',
+    //   button: 'View on Google Maps',
+    //   link: '#',
+    // },
+    // {
+    //   title: 'Call us',
+    //   desc: 'Mon-Fri 9am to 5pm',
+    //   button: '+91 9988-000-000',
+    //   link: 'tel:+919988000000',
+    // },
   ];
 
-  const faqs = [
-    {
-      q: 'Is there a free trial available?',
-      a: 'Yes, you can try our platform free for 14 days. No credit card required.'
-    },
-    {
-      q: 'What is your cancellation policy?',
-      a: 'You can cancel anytime. No questions asked.'
-    },
-    {
-      q: 'How does billing work?',
-      a: 'Billing is monthly and you can upgrade or downgrade at any time.'
-    },
-    {
-      q: 'How does support work?',
-      a: 'Our support team is available 24/7 via chat and email.'
-    },
-    {
-      q: 'Can I change my plan later?',
-      a: 'Absolutely! You can change your plan at any time from your dashboard.'
-    },
-    {
-      q: 'Can I add more sites to a single account?',
-      a: 'Yes, you can manage multiple sites from a single account.'
-    },
-    {
-      q: 'Is my data safe and secure?',
-      a: 'We use industry-standard security to protect your data.'
-    },
-    {
-      q: 'Do you provide tutorials?',
-      a: 'Yes, we have a library of tutorials and guides.'
-    },
-  ];
+
 
   return (
     <motion.div
@@ -208,30 +172,7 @@ const ContactPage: React.FC = () => {
         ))}
       </motion.div>
 
-      <section className="faq-section">
-        <h2 className="faq-title">Frequently asked questions</h2>
-        <motion.div
-          className="faq-list"
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-        >
-          {faqs.slice(0, faqCount).map((faq) => (
-            <motion.div
-              key={faq.q}
-              className="faq-item"
-              variants={cardVariants}
-              whileHover={{ y: -3 }}
-            >
-              <motion.div className="faq-question">{faq.q}</motion.div>
-              <motion.div className="faq-answer">{faq.a}</motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-        {faqCount < faqs.length && (
-          <button className="load-more" onClick={() => setFaqCount(faqCount + 2)}>Load more</button>
-        )}
-      </section>
+
 
       <section className="contact-form-section">
         <div className="form-left">
@@ -290,8 +231,8 @@ const ContactPage: React.FC = () => {
                   value={formData.country}
                   onChange={handleFormChange}
                 >
-                  <option value="US">US</option>
                   <option value="IN">IN</option>
+                  <option value="US">US</option>
                   <option value="UK">UK</option>
                   <option value="AU">AU</option>
                   <option value="CA">CA</option>

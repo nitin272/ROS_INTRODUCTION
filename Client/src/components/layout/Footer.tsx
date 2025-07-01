@@ -17,19 +17,7 @@ const Footer: React.FC<FooterProps> = ({
             title: 'Platform',
             links: [
                 { id: 'vendors', label: 'For Vendors', href: '/vendors' },
-                { id: 'consumers', label: 'For Consumers', href: '/consumers' },
-                { id: 'investors', label: 'For Investors', href: '/investors' },
-                { id: 'marketplace', label: 'Marketplace', href: '/marketplace' }
-            ]
-        },
-        {
-            id: 'resources',
-            title: 'Resources',
-            links: [
-                { id: 'blog', label: 'Blog', href: '/blog' },
-                { id: 'help', label: 'Help Center', href: '/help' },
-                { id: 'api', label: 'API Documentation', href: '/api-docs' },
-                { id: 'guides', label: 'User Guides', href: '/guides' }
+                { id: 'consumers', label: 'For Consumers', href: '/consumers' }
             ]
         },
         {
@@ -37,32 +25,13 @@ const Footer: React.FC<FooterProps> = ({
             title: 'Company',
             links: [
                 { id: 'about', label: 'About Us', href: '/about' },
-                { id: 'careers', label: 'Careers', href: '/careers' },
-                { id: 'press', label: 'Press Kit', href: '/press' },
                 { id: 'contact', label: 'Contact', href: '/contact' }
-            ]
-        },
-        {
-            id: 'legal',
-            title: 'Legal',
-            links: [
-                { id: 'privacy', label: 'Privacy Policy', href: '/privacy' },
-                { id: 'terms', label: 'Terms of Service', href: '/terms' },
-                { id: 'cookies', label: 'Cookie Policy', href: '/cookies' },
-                { id: 'compliance', label: 'Compliance', href: '/compliance' }
             ]
         }
     ];
 
     // Default social links with professional icons
     const defaultSocialLinks: SocialLink[] = [
-        {
-            id: 'twitter',
-            platform: 'Twitter',
-            href: 'https://twitter.com/ros_Sabjiwala',
-            icon: '𝕏',
-            label: 'Follow us on Twitter'
-        },
         {
             id: 'linkedin',
             platform: 'LinkedIn',
@@ -76,13 +45,6 @@ const Footer: React.FC<FooterProps> = ({
             href: 'https://instagram.com/ros_Sabjiwala',
             icon: '⬢',
             label: 'Follow us on Instagram'
-        },
-        {
-            id: 'facebook',
-            platform: 'Facebook',
-            href: 'https://facebook.com/ros.Sabjiwala',
-            icon: '◉',
-            label: 'Like us on Facebook'
         }
     ];
 
@@ -90,7 +52,6 @@ const Footer: React.FC<FooterProps> = ({
     const defaultContactInfo = {
         email: 'info@republicofsabjiwala.com',
         phone: '7339792512',
-        address: 'Republic of Sabjiwala, Digital Agriculture Hub'
     };
 
     // Default company info
@@ -143,28 +104,6 @@ const Footer: React.FC<FooterProps> = ({
                         <p className="footer__description">
                             {companyInfo.description}
                         </p>
-                        <div className="footer__social">
-                            <h4 className="footer__social-title">Follow Us</h4>
-                            <div className="footer__social-links">
-                                {socialLinks.map((social) => (
-                                    <a
-                                        key={social.id}
-                                        href={social.href}
-                                        className="footer__social-link"
-                                        aria-label={social.label}
-                                        tabIndex={0}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            handleLinkClick(social.href, true);
-                                        }}
-                                        onKeyDown={(e) => handleKeyDown(e, social.href, true)}
-                                    >
-                                        <span className="footer__social-icon" aria-hidden="true">{social.icon}</span>
-                                        <span className="footer__social-name">{social.platform}</span>
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
                     </div>
 
                     {/* Navigation Sections */}
@@ -193,6 +132,30 @@ const Footer: React.FC<FooterProps> = ({
                                 </ul>
                             </div>
                         ))}
+                        
+                        {/* Follow Us Section */}
+                        <div className="footer__section footer__section--social">
+                            <h4 className="footer__section-title">Follow Us</h4>
+                            <div className="footer__social-links">
+                                {socialLinks.map((social) => (
+                                    <a
+                                        key={social.id}
+                                        href={social.href}
+                                        className="footer__social-link"
+                                        aria-label={social.label}
+                                        tabIndex={0}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleLinkClick(social.href, true);
+                                        }}
+                                        onKeyDown={(e) => handleKeyDown(e, social.href, true)}
+                                    >
+                                        <span className="footer__social-icon" aria-hidden="true">{social.icon}</span>
+                                        <span className="footer__social-name">{social.platform}</span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
                     {/* Contact Section */}
@@ -215,14 +178,6 @@ const Footer: React.FC<FooterProps> = ({
                                 <span className="footer__contact-icon" aria-hidden="true">☎</span>
                                 <span className="footer__contact-text">{contactInfo.phone}</span>
                             </a>
-                            <div
-                                className="footer__contact-item footer__contact-address"
-                                role="text"
-                                aria-label={`Address: ${contactInfo.address}`}
-                            >
-                                <span className="footer__contact-icon" aria-hidden="true">⌖</span>
-                                <span className="footer__contact-text">{contactInfo.address}</span>
-                            </div>
                         </div>
                     </div>
                 </div>

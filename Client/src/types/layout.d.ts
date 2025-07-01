@@ -45,15 +45,15 @@ export interface SocialLink {
 export interface ContactInfo {
     email: string;
     phone: string;
-    address: string;
+    address?: string;
 }
 
 export interface FooterProps {
     className?: string;
-    sections: FooterSection[];
-    socialLinks: SocialLink[];
-    contactInfo: ContactInfo;
-    companyInfo: {
+    sections?: FooterSection[];
+    socialLinks?: SocialLink[];
+    contactInfo?: ContactInfo;
+    companyInfo?: {
         name: string;
         description: string;
         established: string;
