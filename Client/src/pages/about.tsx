@@ -339,11 +339,13 @@ const TimelineTitle = styled.h2`
 const FarmersSection = styled(Section)`
   position: relative;
   overflow: hidden;
-  padding: 4rem 2rem;
+  padding: 4rem 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.95) 100%);
+  max-width: 100%;
+  width: 100%;
 
   @media (max-width: 768px) {
-    padding: 3rem 1rem;
+    padding: 3rem 0;
   }
 `;
 
@@ -359,6 +361,7 @@ const FarmersHeading = styled.h2`
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease forwards;
+  padding: 0 2rem;
 
   @media (max-width: 1024px) {
     font-size: 3rem;
@@ -368,6 +371,7 @@ const FarmersHeading = styled.h2`
   @media (max-width: 768px) {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    padding: 0 1rem;
   }
 
   @keyframes fadeInUp {
@@ -379,36 +383,60 @@ const FarmersHeading = styled.h2`
 `;
 
 const FarmersGrid = styled.div`
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  padding: 1rem 0.5rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 0 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
 
-  &::-webkit-scrollbar {
-    display: none;
+  @media (max-width: 1400px) {
+    gap: 1.2rem;
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    display: flex;
+    overflow-x: auto;
+    grid-template-columns: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 1rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
     gap: 1.5rem;
-    padding: 0.5rem;
+    padding: 0 1rem;
   }
 `;
 
 const FarmersCard = styled(motion.div)`
-  flex: 0 0 400px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 2rem;
   backdrop-filter: blur(10px);
-  scroll-snap-align: start;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  min-height: 280px;
+
+  @media (max-width: 900px) {
+    flex: 0 0 350px;
+    scroll-snap-align: start;
+  }
 
   &::before {
     content: '';
@@ -440,6 +468,7 @@ const FarmersCard = styled(motion.div)`
   @media (max-width: 768px) {
     flex: 0 0 300px;
     padding: 1.5rem;
+    min-height: 250px;
   }
 `;
 
@@ -477,7 +506,7 @@ const FarmersDesc = styled.p`
 
 // Rename the Farmers section scroll indicator
 const FarmersScrollIndicator = styled.div`
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
@@ -486,6 +515,11 @@ const FarmersScrollIndicator = styled.div`
   font-size: 0.9rem;
   opacity: 0;
   animation: fadeIn 0.5s ease forwards 1s;
+  padding: 0 2rem;
+
+  @media (max-width: 900px) {
+    display: flex;
+  }
 
   @keyframes fadeIn {
     to {
@@ -524,22 +558,9 @@ const LeadershipSection = styled(Section)`
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   padding: 3rem 2rem;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: #000000;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-  }
 
   @media (max-width: 1024px) {
     gap: 2rem;
@@ -566,7 +587,7 @@ const LeadershipLeft = styled.div`
 `;
 
 const LeadershipHeading = styled.h2`
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 1rem;
@@ -576,29 +597,34 @@ const LeadershipHeading = styled.h2`
   line-height: 1.2;
 
   @media (max-width: 1024px) {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   @media (max-width: 768px) {
-    font-size: 1.6rem;
+    font-size: 2rem;
     margin-bottom: 0.8rem;
   }
 `;
 
 const LeadershipDesc = styled.p`
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #e0e0e0;
   opacity: 0.9;
+  margin-left: 160px;
+  margin-top: 1.5rem;
 
   @media (max-width: 1024px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.5;
+    margin-left: 140px;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     line-height: 1.4;
+    margin-left: 0;
+    margin-top: 1rem;
   }
 `;
 
@@ -2536,7 +2562,7 @@ const AboutPage: React.FC = () => {
       </LeftHeroSection>
 
       {/* Our Innovation Section */}
-      <InnovationSection>
+      {/* <InnovationSection>
         <SectionTitle>Our Innovation</SectionTitle>
         <InnovationGrid>
           <InnovationContent ref={(el) => (innovationRefs.current[0] = el)}>
@@ -2557,7 +2583,7 @@ const AboutPage: React.FC = () => {
             />
           </InnovationImage>
         </InnovationGrid>
-      </InnovationSection>
+      </InnovationSection> */}
 
       {/* Our Vision Section */}
       <InnovationSection>
@@ -2635,7 +2661,7 @@ const AboutPage: React.FC = () => {
         </FarmersScrollIndicator>
       </FarmersSection>
 
-      <StatesSection>
+      {/* <StatesSection>
         <StatesHeading>Our Presence Across India</StatesHeading>
         <StatesGrid>
           {statesData.map((state, index) => (
@@ -2659,10 +2685,10 @@ const AboutPage: React.FC = () => {
             </StateCard>
           ))}
         </StatesGrid>
-      </StatesSection>
+      </StatesSection> */}
 
       {/* ROS Stats Section */}
-      <ROSStatsSection>
+      {/* <ROSStatsSection>
         <ROSStatsLeft>
           <ROSStatsHeading>
             ROS is<br />
@@ -2694,7 +2720,7 @@ const AboutPage: React.FC = () => {
             <ROSStatLabel>orders delivery's per hour</ROSStatLabel>
           </StatItem>
         </ROSStatsRight>
-      </ROSStatsSection>
+      </ROSStatsSection> */}
 
       <LeadershipSection>
         <LeadershipLeft>
@@ -2734,11 +2760,11 @@ const AboutPage: React.FC = () => {
             </InvestorCard>
           ))}
         </InvestorsTeam>
-        <InvestorsTitle>Our Investors</InvestorsTitle>
+        {/* <InvestorsTitle>Our Investors</InvestorsTitle>
         <InvestorsSubtitle>
           We've <b>raised $104 million in funding</b>, backed by some of the world's leading investors.
-        </InvestorsSubtitle>
-        <InvestorsLogos>
+        </InvestorsSubtitle> */}
+        {/* <InvestorsLogos>
           {[
             'Notable.',
             'GENERAL CATALYST',
@@ -2764,7 +2790,7 @@ const AboutPage: React.FC = () => {
               {logo}
             </InvestorLogo>
           ))}
-        </InvestorsLogos>
+        </InvestorsLogos> */}
       </InvestorsSection>
     </AboutContainer>
   );

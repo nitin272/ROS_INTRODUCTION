@@ -70,19 +70,7 @@ const Layout: React.FC<LayoutProps> = ({
             title: 'Platform',
             links: [
                 { id: 'vendors', label: 'For Vendors', href: '/vendors' },
-                { id: 'consumers', label: 'For Consumers', href: '/consumers' },
-                { id: 'investors', label: 'For Investors', href: '/investors' },
-                { id: 'marketplace', label: 'Marketplace', href: '/marketplace' }
-            ]
-        },
-        {
-            id: 'resources',
-            title: 'Resources',
-            links: [
-                { id: 'blog', label: 'Blog', href: '/blog' },
-                { id: 'help', label: 'Help Center', href: '/help' },
-                { id: 'api', label: 'API Documentation', href: '/api-docs' },
-                { id: 'guides', label: 'User Guides', href: '/guides' }
+                { id: 'consumers', label: 'For Consumers', href: '/consumers' }
             ]
         },
         {
@@ -90,31 +78,12 @@ const Layout: React.FC<LayoutProps> = ({
             title: 'Company',
             links: [
                 { id: 'about', label: 'About Us', href: '/about' },
-                { id: 'careers', label: 'Careers', href: '/careers' },
-                { id: 'press', label: 'Press Kit', href: '/press' },
                 { id: 'contact', label: 'Contact', href: '/contact' }
-            ]
-        },
-        {
-            id: 'legal',
-            title: 'Legal',
-            links: [
-                { id: 'privacy', label: 'Privacy Policy', href: '/privacy' },
-                { id: 'terms', label: 'Terms of Service', href: '/terms' },
-                { id: 'cookies', label: 'Cookie Policy', href: '/cookies' },
-                { id: 'compliance', label: 'Compliance', href: '/compliance' }
             ]
         }
     ];
 
     const socialLinks: SocialLink[] = [
-        {
-            id: 'twitter',
-            platform: 'Twitter',
-            href: 'https://twitter.com/ros_Sabjiwala',
-            icon: '𝕏',
-            label: 'Follow us on Twitter'
-        },
         {
             id: 'linkedin',
             platform: 'LinkedIn',
@@ -128,20 +97,12 @@ const Layout: React.FC<LayoutProps> = ({
             href: 'https://instagram.com/ros_Sabjiwala',
             icon: '📷',
             label: 'Follow us on Instagram'
-        },
-        {
-            id: 'facebook',
-            platform: 'Facebook',
-            href: 'https://facebook.com/ros.Sabjiwala',
-            icon: '📘',
-            label: 'Like us on Facebook'
         }
     ];
 
     const contactInfo: ContactInfo = {
         email: 'info@republicofsabjiwala.com',
-        phone: '7339792512',
-        address: 'Republic of Sabjiwala, Digital Agriculture Hub'
+        phone: '7339792512'
     };
 
     const companyInfo = {

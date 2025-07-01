@@ -31,12 +31,12 @@
         align-items: start;
 
         @media (min-width: $breakpoint-md) {
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1.2fr 2fr;
             gap: $spacing-5xl;
         }
 
         @media (min-width: $breakpoint-lg) {
-            grid-template-columns: 1.2fr 2fr 1fr;
+            grid-template-columns: 1.2fr 2.5fr 1fr;
             gap: $spacing-3xl;
         }
     }
@@ -109,72 +109,7 @@
         font-size: $font-size-base;
     }
 
-    // Social Section with improved layout
-    &__social {
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-lg;
-        width: 100%;
-    }
 
-    &__social-title {
-        font-size: $font-size-lg;
-        font-weight: $font-weight-semibold;
-        color: $text-primary;
-        margin: 0 0 $spacing-sm 0;
-    }
-
-    &__social-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: $spacing-md;
-        align-items: center;
-    }
-
-    &__social-link {
-        display: flex;
-        align-items: center;
-        gap: $spacing-sm;
-        padding: $spacing-sm $spacing-md;
-        background-color: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: $radius-lg;
-        color: $text-secondary;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        min-width: 100px;
-        justify-content: center;
-
-        &:hover,
-        &:focus {
-            background-color: rgba(0, 210, 106, 0.1);
-            border-color: #00D26A;
-            color: #00D26A;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 210, 106, 0.2);
-        }
-
-        &:focus {
-            outline: 2px solid #00D26A;
-            outline-offset: 2px;
-        }
-    }
-
-    &__social-icon {
-        font-size: $font-size-lg;
-        min-width: 20px;
-        text-align: center;
-    }
-
-    &__social-name {
-        font-size: $font-size-sm;
-        font-weight: $font-weight-medium;
-
-        @media (max-width: $breakpoint-sm) {
-            display: none;
-        }
-    }
 
     // Navigation Sections with improved spacing
     &__sections {
@@ -184,12 +119,12 @@
         align-items: start;
 
         @media (min-width: $breakpoint-md) {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: $spacing-4xl;
         }
 
         @media (min-width: $breakpoint-lg) {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: $spacing-2xl;
         }
     }
@@ -263,6 +198,59 @@
 
         &:hover::before {
             width: 4px;
+        }
+    }
+
+    // Social Section Specific Styling
+    &__section--social {
+        .footer__social-links {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-md;
+            margin-top: $spacing-sm;
+        }
+
+        .footer__social-link {
+            display: flex;
+            align-items: center;
+            gap: $spacing-sm;
+            padding: $spacing-sm;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: $radius-lg;
+            color: $text-secondary;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-medium;
+
+            &:hover,
+            &:focus {
+                background-color: rgba(0, 210, 106, 0.1);
+                border-color: #00D26A;
+                color: #00D26A;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 210, 106, 0.2);
+            }
+
+            &:focus {
+                outline: 2px solid #00D26A;
+                outline-offset: 2px;
+            }
+        }
+
+        .footer__social-icon {
+            font-size: $font-size-lg;
+            min-width: 24px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer__social-name {
+            font-weight: $font-weight-medium;
         }
     }
 
@@ -443,10 +431,6 @@
 
         &__section {
             align-items: center;
-        }
-
-        &__social-links {
-            justify-content: center;
         }
 
         &__contact-info {
