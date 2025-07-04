@@ -2,7 +2,7 @@ import { Layout } from './components/layout';
 import HomePage from './pages/index';
 import AboutPage from './pages/about';
 import ContactPage from './pages/contact';
-import BlogPage from './pages/blog';
+// import BlogPage from './pages/blog';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
