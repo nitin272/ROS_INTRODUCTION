@@ -9,41 +9,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import missionSvg from '../assets/about/mission.svg';
 import image2 from '../assets/about/image2.svg';
 import jpSvg from '../assets/about/Jp.svg';
-import men_image from "../assets/about/men_image.svg";
 
-// Add state data
-const statesData = [
-  {
-    name: "Delhi NCR",
-    description: "Our flagship market with the highest concentration of operations and customer base.",
-    stats: [
-      { value: "50K+", label: "Daily Orders" },
-      { value: "100+", label: "Vendors" },
-      { value: "95%", label: "Customer Satisfaction" },
-      { value: "24/7", label: "Support" }
-    ]
-  },
-  {
-    name: "Mumbai",
-    description: "Expanding rapidly with a focus on premium quality and efficient delivery networks.",
-    stats: [
-      { value: "30K+", label: "Daily Orders" },
-      { value: "75+", label: "Vendors" },
-      { value: "92%", label: "Customer Satisfaction" },
-      { value: "24/7", label: "Support" }
-    ]
-  },
-  {
-    name: "Bangalore",
-    description: "Tech-savvy market with innovative delivery solutions and strong community engagement.",
-    stats: [
-      { value: "25K+", label: "Daily Orders" },
-      { value: "60+", label: "Vendors" },
-      { value: "94%", label: "Customer Satisfaction" },
-      { value: "24/7", label: "Support" }
-    ]
-  }
-];
+
 
 
 
