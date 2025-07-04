@@ -372,32 +372,31 @@ export const FarmersHeading = styled.h2`
 
 export const FarmersGrid = styled.div`
   display: flex;
-  gap: 2rem;
-  overflow-x: auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
   padding: 1rem 0.5rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow: hidden;
 
   @media (max-width: 768px) {
-    gap: 1.5rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
     padding: 0.5rem;
+    align-items: center;
   }
 `;
 
 export const FarmersCard = styled(motion.div)`
-  flex: 0 0 400px;
+  flex: 0 0 250px;
+  max-width: 250px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  padding: 2rem;
+  padding: 1.2rem;
   backdrop-filter: blur(10px);
-  scroll-snap-align: start;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -430,8 +429,9 @@ export const FarmersCard = styled(motion.div)`
   }
 
   @media (max-width: 768px) {
-    flex: 0 0 300px;
-    padding: 1.5rem;
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 1rem;
   }
 `;
 
@@ -856,171 +856,6 @@ export const InvestorLogo = styled(motion.div)`
     padding: 0.4rem 0.8rem;
   }
 `;
-
-
-
-export const InnovationSection = styled(Section)`
-  background: transparent;
-  position: relative;
-  overflow: hidden;
-  margin: 4rem 0;
-  padding: 3rem 4rem;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  @media (max-width: 768px) {
-    padding: 2rem 1rem;
-    margin: 2rem 0;
-  }
-`;
-
-export const InnovationGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-  margin-top: 1.5rem;
-  position: relative;
-  perspective: 1000px;
-
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    gap: 1rem;
-  }
-`;
-
-export const InnovationContent = styled(TextContent)`
-  position: relative;
-  z-index: 1;
-  text-align: left;
-  transition: all 0.8s ease;
-  transform-style: preserve-3d;
-
-  &.visible {
-    opacity: 1;
-    transform: translateX(0) scale(1) rotateY(0deg);
-  }
-
-      h3 {
-      font-size: 2.5rem;
-      background: linear-gradient(120deg, #ffffff, #e0e0e0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1.5rem;
-      font-weight: 800;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-      position: relative;
-      transform-style: preserve-3d;
-      
-      @media (max-width: 768px) {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-      
-      &:hover {
-        transform: scale(1.02) translateZ(20px);
-      }
-    }
-
-  p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #e0e0e0;
-    text-align: left;
-    margin: 1.5rem 0;
-    font-weight: 400;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    opacity: 0.9;
-    transform-style: preserve-3d;
-    
-    @media (max-width: 768px) {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin: 1rem 0;
-    }
-    
-    &:hover {
-      transform: translateY(-2px) translateZ(10px);
-      opacity: 1;
-    }
-  }
-`;
-
-export const InnovationImage = styled(ImageContainer)`
-  height: 400px;
-  transition: all 0.8s ease;
-  position: relative;
-  z-index: 1;
-  border-radius: 20px;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  transform-origin: right top;
-
-  &.visible {
-    opacity: 1;
-    transform: translateX(0) rotate(0deg) scale(1) rotateY(0deg);
-  }
-  
-  @media (max-width: 768px) {
-    height: 300px;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, 
-      rgba(255, 255, 255, 0.05) 0%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.05) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  &:hover {
-    transform: scale(1.02) translateZ(30px);
-    
-    &::after {
-      opacity: 1;
-    }
-  }
-  
-  img {
-    transition: transform 0.5s ease;
-    border-radius: 20px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform-style: preserve-3d;
-    
-    &:hover {
-      transform: scale(1.05) translateZ(20px);
-    }
-  }
-`;
-
-
 
 
 
