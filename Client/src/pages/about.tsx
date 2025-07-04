@@ -591,78 +591,6 @@ const AboutPage: React.FC = () => {
         </S.LeftHeroContainer>
       </S.LeftHeroSection>
 
-      {/* Our Innovation Section */}
-      <S.InnovationSection>
-        <S.SectionTitle>Our Innovation</S.SectionTitle>
-        <S.InnovationGrid>
-          <S.InnovationContent>
-            <h3>Pioneering the Future</h3>
-            <p>
-              Our expertise in ROS enables us to create sophisticated robotic systems
-              that are reliable, efficient, and adaptable to various applications.
-              From industrial automation to research and development, we leverage
-              the power of ROS to deliver cutting-edge solutions.
-            </p>
-          </S.InnovationContent>
-          <S.InnovationImage>
-            <img
-              src={missionSvg}
-              alt="Our Innovation showcase"
-              loading="lazy"
-              style={{ objectFit: 'contain', borderRadius: '30px' }}
-            />
-          </S.InnovationImage>
-        </S.InnovationGrid>
-      </S.InnovationSection>
-
-      {/* Our Vision Section */}
-      <S.InnovationSection>
-        <S.SectionTitle>Our Vision</S.SectionTitle>
-        <S.InnovationGrid>
-          <S.InnovationImage>
-            <img
-              src={men_image}
-              alt="Our vision for the future"
-              loading="lazy"
-              style={{ objectFit: 'contain', borderRadius: '30px' }}
-            />
-          </S.InnovationImage>
-          <S.InnovationContent>
-            <h3>Shaping Tomorrow</h3>
-            <p>
-              We envision a world where robotics and automation seamlessly integrate
-              into everyday life, enhancing productivity and quality of life. Our
-              commitment to innovation and excellence drives us to be at the forefront
-              of this technological revolution.
-            </p>
-          </S.InnovationContent>
-        </S.InnovationGrid>
-      </S.InnovationSection>
-
-      {/* ROS Technology Section */}
-      <S.InnovationSection>
-        <S.SectionTitle>ROS Technology</S.SectionTitle>
-        <S.InnovationGrid>
-          <S.InnovationContent>
-            <h3>Cutting-Edge Solutions</h3>
-            <p>
-              Our expertise in ROS enables us to create sophisticated robotic systems
-              that are reliable, efficient, and adaptable to various applications.
-              From industrial automation to research and development, we leverage
-              the power of ROS to deliver cutting-edge solutions.
-            </p>
-          </S.InnovationContent>
-          <S.InnovationImage>
-            <img
-              src={missionSvg}
-              alt="ROS Technology showcase"
-              loading="lazy"
-              style={{ objectFit: 'contain', borderRadius: '30px' }}
-            />
-          </S.InnovationImage>
-        </S.InnovationGrid>
-      </S.InnovationSection>
-
       {/* Farmers Section */}
       <S.FarmersSection>
         <S.FarmersHeading>Our Farmers</S.FarmersHeading>
@@ -691,66 +619,7 @@ const AboutPage: React.FC = () => {
         </S.FarmersScrollIndicator>
       </S.FarmersSection>
 
-      <S.StatesSection>
-        <S.StatesHeading>Our Presence Across India</S.StatesHeading>
-        <S.StatesGrid>
-          {statesData.map((state, index) => (
-            <S.StateCard
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <S.StateName>{state.name}</S.StateName>
-              <S.StateStats>
-                {state.stats.map((stat, statIndex) => (
-                  <S.StatesStatItem key={statIndex}>
-                    <S.StatesStatValue>{stat.value}</S.StatesStatValue>
-                    <S.StatesStatLabel>{stat.label}</S.StatesStatLabel>
-                  </S.StatesStatItem>
-                ))}
-              </S.StateStats>
-              <S.StateDescription>{state.description}</S.StateDescription>
-            </S.StateCard>
-          ))}
-        </S.StatesGrid>
-      </S.StatesSection>
-
-      {/* ROS Stats Section */}
-      <S.ROSStatsSection>
-        <S.ROSStatsLeft>
-          <S.ROSStatsHeading>
-            ROS is<br />
-            for everyone
-          </S.ROSStatsHeading>
-          <S.ROSStatsDescription>
-
-            At ROS - Republic of Sabjiwala, we simplify the journey of vegetables
-            from farm to home. By connecting directly with farmers, we deliver
-            fresh, healthy, and affordable produce while cutting out the
-            middlemen. Our goal is to support growers, reduce waste, and build a
-            greener, fairer food system for everyone.
-          </S.ROSStatsDescription>
-        </S.ROSStatsLeft>
-
-        <S.ROSStatsRight>
-          <S.StatItem>
-            <S.ROSStatNumber>13k</S.ROSStatNumber>
-            <S.ROSStatLabel>Customers</S.ROSStatLabel>
-          </S.StatItem>
-
-          <S.StatItem>
-            <S.ROSStatNumber>107</S.ROSStatNumber>
-            <S.ROSStatLabel>vendor's outlet</S.ROSStatLabel>
-          </S.StatItem>
-
-          <S.StatItem>
-            <S.ROSStatNumber>3000+</S.ROSStatNumber>
-            <S.ROSStatLabel>orders delivery's per hour</S.ROSStatLabel>
-          </S.StatItem>
-        </S.ROSStatsRight>
-      </S.ROSStatsSection>
+      {/* ROS is for everyone section removed */}
 
       <S.LeadershipSection>
         <S.LeadershipLeft>
@@ -790,37 +659,7 @@ const AboutPage: React.FC = () => {
             </S.InvestorCard>
           ))}
         </S.InvestorsTeam>
-        <S.InvestorsTitle>Our Investors</S.InvestorsTitle>
-        <S.InvestorsSubtitle>
-          We've <b>raised $104 million in funding</b>, backed by some of the world's leading investors.
-        </S.InvestorsSubtitle>
-        <S.InvestorsLogos>
-          {[
-            'Notable.',
-            'GENERAL CATALYST',
-            'CATALYST',
-            'MENLO VENTURES',
-            'snowflake',
-            'khosla ventures',
-            'FOUNDERS FUND',
-            'databricks',
-          ].map((logo, idx) => (
-            <S.InvestorLogo
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: idx * 0.1,
-                type: "spring",
-                stiffness: 100
-              }}
-              viewport={{ once: true }}
-            >
-              {logo}
-            </S.InvestorLogo>
-          ))}
-        </S.InvestorsLogos>
+      
       </S.InvestorsSection>
     </S.AboutContainer>
   );
